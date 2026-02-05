@@ -8,10 +8,9 @@ train_ratio = 100
 
 # fetch dataset 
 def _fetch_and_split():
-    """Fetch the wine quality dataset and split it once"""
     global data, train_data, test_data, train_ratio
     
-    print("Fetching Wine Quality dataset...")
+    print("Fetching dataset...")
     try:
         wine = fetch_ucirepo(id=174)
         X_full = wine.data.features
