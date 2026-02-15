@@ -23,14 +23,15 @@ class Model:
         score = self.model.score(X_test, y_test)
         print(f"Model score: {round(score, 2)}\nPassed benchmark: {score >= benchmark}")
         return score
-    
+
     def process_data(self, data):
         # LIAM
         # run the data (provided by the user input in the website) through the model, and get an output
-        return "0.53" # return the output as a string, which will be shown on the website
+        return "0.67" # return the output as a string, which will be shown on the website
     
 if __name__ == "__main__":
     # TEST CODE - WILL NOT ACTUALLY RUN IN THE WEB PAGE 
+    # There is a copy of this code in main.py which actually runs, this is just for easier testing
         
     from data_extraction import set_training_ratio, get_testing_data, get_training_data
     percentage_training_data = 70 # % of the total data used as training data (the rest is used as test data)

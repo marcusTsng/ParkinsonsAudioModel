@@ -1,6 +1,3 @@
-print("Loading...")
-
-
 """SETUP"""
 # Flask - js/py bridge imports and setup
 from flask import Flask, request, jsonify
@@ -13,13 +10,23 @@ CORS(app)
 from data_extraction import get_training_data, get_testing_data, set_training_ratio
 from machine_learning import Model
 # Variables/Constants
-PERCENTAGE_TRAINING_DATA = 70
+PERCENTAGE_TRAINING_RATIO = 70
+
+# Fetching data
+set_training_ratio(PERCENTAGE_TRAINING_RATIO)
+X_train, y_train = get_training_data()
+X_test, y_test = get_testing_data()
+
+# Loading ai model
+model = Model()
+model.train(X_train, y_train)
 
 """FUNCTIONS"""
+# Audio processing
 def get_data_from_audio(file):
     data = file.read()
-    #Process(data) 
-    return "0.52" # Placeholder
+    out = model.process_data(data)
+    return out 
 
 """FLASK CONNECTION (JS/PY BRIDGE)"""
 @app.route("/process_audio", methods=["POST"])
