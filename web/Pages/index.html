@@ -1,37 +1,50 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Noble-Pliers Parkinsons Identifier</title>
-    <link rel="stylesheet" href="../style.css">
+<title>Noble-Pliers Parkinsons Identifier</title>
+<link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
-    <h1>PARKINSONS IDENTIFIER FROM AUDIO</h1>
-    <div class="subtitle">Noble Pliers</div>
+<div class="app-shell">
+<div class="app-inner">
+<h1>PARKINSONS IDENTIFIER FROM AUDIO</h1>
+<div class="subtitle">Noble Pliers</div>
 
-    <div name="Audio Input">
-        <button id="startRecord" class="record-btn">🎤 Start Recording</button>
-        <button id="stopRecord" class="record-btn" disabled>⏹️ Stop Recording</button>
-        <button id="submitRecording" class="record-btn" disabled>✅ Submit for Analysis</button>
+<div class="section-row">
+<div class="panel">
+<div class="panel-header">
+<h2>Audio input & playback</h2>
+<span class="badge">Live capture</span>
+</div>
 
-        <div name="Audio Playback">
-            <button id="playAudio" class="record-btn" disabled>🔊 Play Last Recording</button>
-            <button id="clearAudio" class="record-btn" disabled>🗑️ Clear</button>
-            <br>
-            <audio id="audioPlayer" controls style="width: 100%; max-width: 400px; margin-top: 10px;"></audio>
-        </div>
+<button id="startRecord" class="record-btn">🎤 Start Recording</button>
+<button id="stopRecord" class="record-btn" disabled>⏹️ Stop Recording</button>
+<button id="submitRecording" class="record-btn" disabled>✅ Submit for Analysis</button>
 
+<div name="Audio Playback">
+<button id="playAudio" class="record-btn" disabled>🔊 Play Recording</button>
+<button id="clearAudio" class="record-btn" disabled>🗑️ Clear</button>
+<br>
+<audio id="audioPlayer" controls></audio>
+</div>
 
-        <br><br>
-        <!-- Keep file upload as fallback -->
-        <input id="audioFile" type="file" accept="audio/*" style="display:none;">
-        <label for="audioFile" class="file-label">📁 Or upload file</label>
-    </div>
+<br>
+<input id="audioFile" type="file" accept="audio/*" style="display:none;">
+<label for="audioFile" class="file-label">📁 Or upload file</label>
+</div>
 
-    <div name="Output">
-        <h2>Final result after processing:</h2>
-        <div id="finalResultOutput">Click "Start Recording" to begin...</div>
-        <div id="recordingStatus"></div>
-    </div>
-</body>
+<div class="panel">
+<div class="panel-header">
+<h2>Analysis output</h2>
+<span class="badge">AI result</span>
+</div>
+<h2 style="margin:0 0 12px;font-size:0.98rem;color:#e5e7eb;">Final result after processing:</h2>
+<div id="finalResultOutput">Click "Start Recording" to begin...</div>
+<div id="recordingStatus"></div>
+</div>
+</div>
+</div>
+</div>
 <script src="../JS/main.js"></script>
+</body>
 </html>
